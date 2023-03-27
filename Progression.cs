@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VirobLab02
 {
-    public abstract class Progression : IComparable
+    public abstract class Progression : IComparable, ICloneable
     {
         public double FirstMember { get; set; }
         public double IncrementOrMultiplier { get; set; }
@@ -58,6 +58,10 @@ namespace VirobLab02
                 throw new ArgumentNullException(nameof(b));
 
             return a.Add(b);
+        }
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
