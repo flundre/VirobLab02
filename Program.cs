@@ -17,6 +17,15 @@ namespace VirobLab02
             arr.Add(new Geometric(10, 0.5, 10));
             arr.Add(new Arithmetic(-100, 25, 10));
 
+            //Menu(arr);
+            Geometric eventTest = new Geometric(2, 0.5, 5);
+            Console.WriteLine(eventTest.IncrementOrMultiplier);
+            Console.WriteLine(eventTest.IncrementOrMultiplier = 0.7);
+            Console.ReadLine();
+
+        }    
+        static void Menu(List<Progression> arr)
+        {
             while (true)
             {
                 Console.WriteLine("What are we doing?");
@@ -48,25 +57,25 @@ namespace VirobLab02
                     }
                     else { throw new Exception("Wrong type input"); }
                 }
-                else if(choice == 2)
+                else if (choice == 2)
                 {
-                    for(int i = 0; i < arr.Count; ++i)
+                    for (int i = 0; i < arr.Count; ++i)
                     {
                         Console.WriteLine(arr[i]);
                         Console.WriteLine();
                     }
                 }
-                else if(choice == 3)
+                else if (choice == 3)
                 {
                     Progression max = arr[0];
-                    for(int i = 1; i < arr.Count; ++i)
+                    for (int i = 1; i < arr.Count; ++i)
                     {
                         int temp = max.CompareTo(arr[i]);
                         if (temp == 1)
                         {
                             continue;
                         }
-                        else if(temp == -1)
+                        else if (temp == -1)
                         {
                             max = arr[i];
                         }
@@ -77,26 +86,26 @@ namespace VirobLab02
                     }
                     Console.WriteLine($"The progression with the largest sum is:\n{max.ToString()}");
                 }
-                else if(choice == 4)
+                else if (choice == 4)
                 {
                     Console.WriteLine($"{arr[0]}\n+\n{arr[2]}\n=\n{arr[0] + arr[2]}\n");
                     Console.WriteLine($"{arr[1]}\n+\n{arr[3]}\n=\n{arr[1] + arr[3]}\n");
                 }
-                else if(choice == 5)
+                else if (choice == 5)
                 {
                     Console.WriteLine("Input n: ");
                     int n = int.Parse(Console.ReadLine());
-                    for(int i = 0; i < arr.Count; ++i)
+                    for (int i = 0; i < arr.Count; ++i)
                     {
                         arr[i].N += n;
                     }
                 }
-                else if(choice == 6)
+                else if (choice == 6)
                 {
                     List<double> mult = new List<double>(); ;
-                    for(int i = 0; i < arr.Count; ++i)
+                    for (int i = 0; i < arr.Count; ++i)
                     {
-                        if(arr[i] is Geometric)
+                        if (arr[i] is Geometric)
                         {
                             mult.Add(arr[i].IncrementOrMultiplier);
                             Console.WriteLine(arr[i].IncrementOrMultiplier + " ");
@@ -111,10 +120,6 @@ namespace VirobLab02
                 }
 
             }
-        }
-        static void Menu()
-        {
-
         }
     }
 }
